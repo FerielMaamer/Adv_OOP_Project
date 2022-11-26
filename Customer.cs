@@ -6,5 +6,7 @@ namespace projectOOP
 {
     internal class Customer
     {
+
+      
     }
 }
