@@ -1,48 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace projectOOP
+namespace project
 {
     internal class BookingManager
     {
-        private Booking[] bookingsList;
+        private Booking[] bookingList;
         private int maxBookings;
         private int numBookings;
 
         public BookingManager(int maxBookings)
         {
             this.maxBookings = maxBookings;
-            this.numBookings = 0;
-            this.bookingsList = new Booking[maxBookings];
+            numBookings = 0;
+            bookingList = new Booking[maxBookings];
         }
-        public bool addBooking()
+
+        public int search(int bookingNumber)
+        {
+            for (int i = 0; i < bookingList.Length; i++)
+            {
+                if (bookingList[i].getBookingNumber() == bookingNumber)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public bool addBooking(int bookingNumber, int customerID, int flightID)
         {
             if (numBookings < maxBookings)
             {
-                FlightManager.viewFlights();
-                CustomerManager.viewCustomers();
-                Console.WriteLine("Please enter the customer ID for the booking: ");
-                string custID = Console.ReadLine();
-                Console.WriteLine("Please enter the flight ID for the booking: ");
-                string flightID = Console.ReadLine();
-                if (CustomerManager.findCustomer(custID) != -1 && FlightManager.findFlight(flightID) != -1)
-                    //outputs to user if not found and returns -1 else returns the object
-                    
+                int index = search(bookingNumber);
+                if (index == -1)
                 {
-                    if (Flight.addCustomer(custID))
-                    //addCustomer() should check if the flight is full or not and if the customer is already part of flight or not
-                    //outputs to user if flight is full or cutomer exists
-                    {
-                        bookingsList[numBookings] = new Booking(flight, customer);
-                        numBookings++;
-                        return true;
-                    }
-                    else { return false; }                    
+                    bookingList[numBookings] = new Booking(bookingNumber, customerID, flightID);
+                    numBookings++;
+                    return true;
                 }
-                else { return false; }
-
             }
+            return false;
+        }
+
+        public string viewBooking(int bookingNumber)
+        {
+            int index = search(bookingNumber);
+            if (index == -1)
+            {
+                return $"There is no booking with the booking number: {bookingNumber}";
+            }
+            return bookingList[index].ToString();
+        }
+
+        public string viewAllBookings()
+        {
+            string s = "-------- Bookings --------\n";
+            for (int i = 0; i < numBookings; i++)
+            {
+                s += bookingList[i].ToString() + "\n";
+            }
+            return s;
         }
     }
 }

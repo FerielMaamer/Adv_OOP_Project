@@ -1,35 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace projectOOP
+namespace project
 {
-    internal class Booking
+    internal class Customer
     {
-        string bookingDate;
-        string bookingNum;
-        Flight flight;
-        Customer customer;
+        private int id = 0;
+        private string fname;
+        private string lname;
+        private string phoneNum;
 
-        public Booking(Flight flight, Customer customer)
-        {                        
-            this.flight = flight;
-            this.customer = customer;
-            //generating booking date
-            this.bookingDate = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
-            //randomly generated booking number
-            Random generator = new Random();
-            this.bookingNum = generator.Next(0, 1000000).ToString("D6");
-        }
-        public string getBookingDate() { return bookingDate; }
-        public string getBookingNum() { return bookingNum; }
-
-        public string viewBooking()
+        public Customer(string fname, string lname, string phoneNum)
         {
-            string s = "Booking Date: " + bookingDate + "\nBooking Number: " + bookingNum +
-                "\nCustomer Name: " + customer.getName() + "\nFlight number: " + flight.getFilghtNumber;
-            return s;
+            this.id = ++id;
+            this.fname = fname;
+            this.lname = lname;
+            this.phoneNum = phoneNum;
         }
 
+        public int getCustomerID()
+        {
+            return id;
+        }
+
+        public string getFname()
+        {
+            return fname;
+        }
+
+        public void setFname(string fname)
+        {
+            this.fname = fname;
+        }
+
+        public string getLname()
+        {
+            return lname;
+        }
+
+        public void setLname(string lname)
+        {
+            this.lname = lname;
+        }
+
+        public string getName()
+        {
+            return $"{fname} {lname}";
+        }
+
+        public string getPhoneNum()
+        {
+            return phoneNum;
+        }
+
+        public void setPhoneNum(string phoneNum)
+        {
+            this.phoneNum = phoneNum;
+        }
+
+        public override string ToString()
+        {
+            return $"Customer ID: {id}\nCustomer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
+        }
     }
 }
