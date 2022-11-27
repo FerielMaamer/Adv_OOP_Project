@@ -31,13 +31,13 @@ namespace project
             return -1;
         }
 
-        public bool addFlight(int flightNumber)
+        public bool addFlight(int flightNumber, int capacity)
         {
             if (numFlights < maxFlights)
             {
                 if (search(flightNumber) == -1)
                 {
-                    flightList[numFlights] = new Flight(flightNumber);
+                    flightList[numFlights] = new Flight(flightNumber, capacity);
                     numFlights++;
                     return true;
                 }
@@ -55,9 +55,9 @@ namespace project
             return flightList[index].ToString();
         }
 
-        public string viewAllBookings()
+        public string viewAllFlights()
         {
-            string s = "-------- Bookings --------\n";
+            string s = "-------- Flights --------\n";
             for (int i = 0; i < numFlights; i++)
             {
                 s += flightList[i].ToString() + "\n";

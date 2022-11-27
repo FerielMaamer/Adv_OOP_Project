@@ -1,7 +1,4 @@
-﻿using System;
-using System.Console;
-
-namespace project
+﻿namespace project
 {
     class program
     {
@@ -17,7 +14,7 @@ namespace project
             Console.WriteLine("4: Exit");
         }
 
-        public static void showFligtMenu()
+        public static void showFlightMenu()
         {
             Console.Clear();
             Console.WriteLine("Flight Menu");
@@ -47,7 +44,6 @@ namespace project
             Console.WriteLine("Select a choice from the menu below:");
             Console.WriteLine("1: Make a booking");
             Console.WriteLine("2: View bookings");
-            //Console.WriteLine("3: View a particular booking");
             Console.WriteLine("3: Back to main menu");
         }
 

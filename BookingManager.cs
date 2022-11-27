@@ -31,14 +31,14 @@ namespace project
             return -1;
         }
 
-        public bool addBooking(int bookingNumber, int customerID, int flightID)
+        public bool addBooking(int bookingNumber, Customer customer, Flight flight)
         {
             if (numBookings < maxBookings)
             {
                 int index = search(bookingNumber);
                 if (index == -1)
                 {
-                    bookingList[numBookings] = new Booking(bookingNumber, customerID, flightID);
+                    bookingList[numBookings] = new Booking(customer, flight);
                     numBookings++;
                     return true;
                 }

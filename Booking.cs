@@ -6,64 +6,54 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    internal class Customer
+    internal class Booking
     {
-        private int id = 0;
-        private string fname;
-        private string lname;
-        private string phoneNum;
+        private int bookingNumber = 0;
+        private Customer customer;
+        private Flight flight;
+        private string date;
 
-        public Customer(string fname, string lname, string phoneNum)
+        public Booking(Customer customer, Flight flight)
         {
-            this.id = ++id;
-            this.fname = fname;
-            this.lname = lname;
-            this.phoneNum = phoneNum;
+            this.bookingNumber = ++bookingNumber;
+            this.customer = customer;
+            this.flight = flight;
+            this.date = DateTime.Now.ToString(@"MM\/dd\/yyyy  h\:mm tt");
         }
 
-        public int getCustomerID()
+        public int getBookingNumber()
         {
-            return id;
+            return bookingNumber;
         }
 
-        public string getFname()
+        public void setBookingNumber(int bookingNumber)
         {
-            return fname;
+            this.bookingNumber = bookingNumber;
         }
 
-        public void setFname(string fname)
+        public Customer getCustomer()
         {
-            this.fname = fname;
+            return customer;
         }
 
-        public string getLname()
+        public void setCustomerID(Customer customer)
         {
-            return lname;
+            this.customer = customer;
         }
 
-        public void setLname(string lname)
+        public Flight getFlight()
         {
-            this.lname = lname;
+            return flight;
         }
 
-        public string getName()
+        public void setFlight(Flight flight)
         {
-            return $"{fname} {lname}";
-        }
-
-        public string getPhoneNum()
-        {
-            return phoneNum;
-        }
-
-        public void setPhoneNum(string phoneNum)
-        {
-            this.phoneNum = phoneNum;
+            this.flight = flight;
         }
 
         public override string ToString()
         {
-            return $"Customer ID: {id}\nCustomer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
+            return $"Booking Number: {bookingNumber}\nFlight Number: {flight}\nCustomer ID: {customer}";
         }
     }
 }

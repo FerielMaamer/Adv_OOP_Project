@@ -29,9 +29,11 @@ namespace project
             return cm.addCustomer(customerID, fname, lname, phone);
         }
 
-        public bool addBooking(int bookingNumber, int customerID, int flightID)
+        public bool addBooking(int bookingNumber, Customer customer, Flight flight)
         {
-            return bm.addBooking(bookingNumber, customerID, flightID);
+            cm.viewAllCustomers();
+            fm.viewAllFlights();
+            return bm.addBooking(bookingNumber, cm.search(2), flightID);
         }
 
 
