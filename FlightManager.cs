@@ -11,6 +11,7 @@ namespace project
         private Flight[] flightList;
         private int maxFlights;
         private int numFlights;
+        
 
         public FlightManager(int maxFlights)
         {
@@ -31,6 +32,11 @@ namespace project
             return -1;
         }
 
+        public Flight findFlight(int index)
+        {
+            return flightList[index];
+        }
+
         public bool addFlight(int flightNumber, int capacity)
         {
             if (numFlights < maxFlights)
@@ -45,6 +51,16 @@ namespace project
             return false;
         }
 
+        public string viewAllFlights()
+        {
+            string s = "-------- Flights --------\n";
+            for (int i = 0; i < numFlights; i++)
+            {
+                s += flightList[i].ToString() + "\n";
+            }
+            return s;
+        }
+
         public string viewFlight(int flightNumber)
         {
             int index = search(flightNumber);
@@ -55,14 +71,17 @@ namespace project
             return flightList[index].ToString();
         }
 
-        public string viewAllFlights()
+        public string deleteFlight(int flightNumber)
         {
-            string s = "-------- Flights --------\n";
-            for (int i = 0; i < numFlights; i++)
+            int index = search(flightNumber);
+            if (index != -1 && flightList[index].getNumCustomers()==0)
             {
-                s += flightList[i].ToString() + "\n";
+                flightList = flightList.Where((e, i) => i != index).ToArray();
+                return "Successfully deleted!";
             }
-            return s;
+            return "The flight could not be deleted as it does not exist or has customers on it.";
         }
+
+        
     }
 }

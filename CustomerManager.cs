@@ -30,6 +30,10 @@ namespace project
             }
             return -1;
         }
+        public Customer findCustomer(int index)
+        {
+            return customerList[index];
+        }
 
         public bool addCustomer(int customerID, string fname, string lname, string phoneNumber)
         {
@@ -39,19 +43,11 @@ namespace project
                 {
                     customerList[numCustomers] = new Customer(fname, lname, phoneNumber);
                     numCustomers++;
+                    customerList[numCustomers]
                     return true;
                 }
             }
             return false;
-        }
-
-        public string viewCustomer(int customerID)
-        {
-            if (search(customerID) == -1)
-            {
-                return $"There is no customer with the ID: {customerID}";
-            }
-            return customerList[customerID].ToString() + "\n";
         }
 
         public string viewAllCustomers()
@@ -62,6 +58,31 @@ namespace project
                 s += customerList[i].ToString() + "\n";
             }
             return s;
+        }
+
+        public string viewCustomer(int customerID)
+        {
+            if (search(customerID) == -1)
+            {
+                return $"There is no customer with the ID: {customerID}";
+            }
+            return customerList[customerID].ToString() + "\n";
+        }        
+
+        public string deleteCustomer(int customerNumber)
+        {
+            int index = search(customerNumber);
+            int numBookings = customerList[index].getBookings();
+            if (index != -1 && numBookings>0)
+            {                
+                customerList[index].setBookings(numBookings-1);
+                for (int i = index; i<customerList.Length; i++)
+                {
+                    customerList[i]=customerList[i+1]; 
+                }
+                return "Successfully deleted!";
+            }
+            return "The flight could not be deleted as it does not exist.";
         }
     }
 }

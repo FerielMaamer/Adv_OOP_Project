@@ -9,14 +9,19 @@ namespace project
     internal class Flight
     {
         private int flightNumber;
+        private string origin;
+        private string destination;
         private int capacity;
         private Customer[] customers;
+        
 
-        public Flight(int flightNumber, int capacity)
+        public Flight(int flightNumber, int capacity, string origin, string destination)
         {
             this.flightNumber = flightNumber;
             this.capacity = capacity;
             customers = new Customer[capacity];
+            this.origin = origin;
+            this.destination = destination;
         }
 
         public int getFlightNumber()
@@ -37,6 +42,25 @@ namespace project
         public void setCapacity(int capacity)
         {
             this.capacity = capacity;
+        }
+
+        public string getOrigin()
+        {
+            return origin;
+        }
+
+        public void setOrigin(string origin)
+        {
+            this.origin = origin;
+        }
+        public string getDestination()
+        {
+            return destination;
+        }
+
+        public void setDestination(string Destination)
+        {
+            this.destination = destination;
         }
 
         public bool addCustomer(Customer customer)
@@ -61,7 +85,10 @@ namespace project
 
         public override string ToString()
         {
-            return $"Flight number: {flightNumber}\n";
+            string s = $"Flight number: {flightNumber}\n";
+            s+= $"Flight Origin: {origin}"
+            s+= $"Flight destination: {destination}"
+            return s;
         }
     }
 }
