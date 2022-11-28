@@ -26,30 +26,30 @@ namespace project
             return bookingNumber;
         }
 
-        public void setBookingNumber(int bookingNumber)
+        /*public void setBookingNumber(int bookingNumber)
         {
             this.bookingNumber = bookingNumber;
-        }
+        }*/
 
         public Customer getCustomer()
         {
             return customer;
         }
 
-        public void setCustomerID(Customer customer)
+        /*public void setCustomer(Customer customer)
         {
             this.customer = customer;
-        }
+        }*/
 
         public Flight getFlight()
         {
             return flight;
         }
-
+        /*
         public void setFlight(Flight flight)
         {
             this.flight = flight;
-        }
+        }*/
 
         public override string ToString()
         {

@@ -12,6 +12,7 @@ namespace project
         private string fname;
         private string lname;
         private string phoneNum;
+        private int bookings;
 
         public Customer(string fname, string lname, string phoneNum)
         {
@@ -19,6 +20,7 @@ namespace project
             this.fname = fname;
             this.lname = lname;
             this.phoneNum = phoneNum;
+            this.bookings=0;
         }
 
         public int getCustomerID()
@@ -59,6 +61,15 @@ namespace project
         public void setPhoneNum(string phoneNum)
         {
             this.phoneNum = phoneNum;
+        }
+
+        public int getBookings()
+        {
+            return bookings;
+        }
+        public int setBookings(int bookings)
+        {
+            this.bookings = bookings;
         }
 
         public override string ToString()

@@ -73,7 +73,7 @@ namespace project
         {
             int index = search(customerNumber);
             int numBookings = customerList[index].getBookings();
-            if (index != -1 && numBookings>0)
+            if (index != -1 && numBookings==0)
             {                
                 customerList[index].setBookings(numBookings-1);
                 for (int i = index; i<customerList.Length; i++)

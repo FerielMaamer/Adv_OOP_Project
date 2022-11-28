@@ -12,16 +12,19 @@ namespace project
         private string origin;
         private string destination;
         private int capacity;
+        private int numCustomers;
         private Customer[] customers;
         
 
         public Flight(int flightNumber, int capacity, string origin, string destination)
         {
             this.flightNumber = flightNumber;
-            this.capacity = capacity;
-            customers = new Customer[capacity];
             this.origin = origin;
             this.destination = destination;
+            this.capacity = capacity;
+            numCustomers = 0;
+            customers = new Customer[capacity];
+            
         }
 
         public int getFlightNumber()
@@ -62,10 +65,14 @@ namespace project
         {
             this.destination = destination;
         }
-
-        public bool addCustomer(Customer customer)
+        public int getNumCustomers()
         {
-            if (getCapacity() <= customers.Length)
+            return numCustomers;
+        }
+
+        public bool addCustomer(Customer newCustomer)
+        {
+            /*if (getCapacity() <= customers.Length)
             { return false; }
 
             if (customers.Length == 0)
@@ -80,7 +87,23 @@ namespace project
                 { return false; }
             }
             customers[customers.Length] = customer;
-            return true;
+            return true;*/
+
+            if (numCustomers < capacity)
+            {
+                foreach (Customer customer in customers)
+                {
+                    if (customer.getCustomerID() == newCustomer.getCustomerID())
+                    { return false; }
+                    else
+                    {
+                        customers[numCustomers] = newCustomer;
+                        numCustomers++;
+                        return true;
+                    }
+                }
+            }
+            else { return false; }
         }
 
         public override string ToString()

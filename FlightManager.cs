@@ -37,13 +37,13 @@ namespace project
             return flightList[index];
         }
 
-        public bool addFlight(int flightNumber, int capacity)
+        public bool addFlight(int flightNumber, int capacity, string origin, string destination)
         {
             if (numFlights < maxFlights)
             {
                 if (search(flightNumber) == -1)
                 {
-                    flightList[numFlights] = new Flight(flightNumber, capacity);
+                    flightList[numFlights] = new Flight(flightNumber, capacity, origin, destination);
                     numFlights++;
                     return true;
                 }

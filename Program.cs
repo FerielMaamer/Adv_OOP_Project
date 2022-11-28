@@ -2,7 +2,7 @@
 {
     class program
     {
-        public static Coordinator coordintor;
+        public static Coordinator coord;
 
         public static void showMainMenu()
         {
@@ -26,6 +26,9 @@
             Console.WriteLine("5: Back to main menu");
         }
 
+        //Flight menu functions:
+        
+
         public static void showCustomerMenu()
         {
             Console.Clear();
@@ -47,20 +50,25 @@
             Console.WriteLine("3: Back to main menu");
         }
 
-        public static int getValidInput()
+        /* public static int getValidInput()
+         {
+             int choice;
+             showMainMenu();
+             while (!int.TryParse(Console.ReadLine(), out choice))
+             {
+                 showMainMenu();
+             }
+             return choice;
+
+             static void Main(string[] args)
+             {
+
+             }
+         }*/
+
+        static void Main(string[] args)
         {
-            int choice;
-            showMainMenu();
-            while (!int.TryParse(Console.ReadLine(), out choice))
-            {
-                showMainMenu();
-            }
-            return choice;
-
-            static void Main(string[] args)
-            {
-
-            }
+            coord.addFlight()
         }
     }
 }
