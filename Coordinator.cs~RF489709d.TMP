@@ -27,9 +27,9 @@ namespace project
 
         //Flight class functions
 
-        public bool addFlight(int flightNumber, int capacity, string origin, string destination)
+        public bool addFlight(int flightNumber)
         {
-            return fm.addFlight(flightNumber, capacity, origin, destination);
+            return fm.addFlight(flightNumber);
         }
 
         public string viewAllFlights()
