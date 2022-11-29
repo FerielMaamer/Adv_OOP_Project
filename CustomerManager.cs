@@ -11,12 +11,15 @@ namespace project
         private Customer[] customerList;
         private int maxCustomers;
         private int numCustomers;
+        int custID;
 
         public CustomerManager(int maxCustomers)
         {
             this.maxCustomers = maxCustomers;
             numCustomers = 0;
+            custID = 0;
             customerList = new Customer[maxCustomers];
+
         }
 
         public int search(int customerNumber)
@@ -37,24 +40,35 @@ namespace project
 
         public bool addCustomer(string fname, string lname, string phoneNumber, int numBookings)
         {
+            bool exists = false;
             if (numCustomers < maxCustomers)
             {
-                foreach (Customer customer in customerList)
+                for (int i = 0; i < customerList.Length; i++)
                 {
-                    if (customer.getFname()==fname && customer.getLname()==lname && customer.getPhoneNum() == phoneNumber)
+                    if (customerList[i] != null)
                     {
-                        return false;
-                    }
-                    else
-                    {
-                        customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
-                        numCustomers++;
-                        return true;
-                    }
-                }               
-                
+                        if (customerList[i].getFname() == fname && customerList[i].getLname() == lname && customerList[i].getPhoneNum() == phoneNumber)
+                        {
+                            exists = true;
+                        }
+                    } 
+                }
+                if (exists == false)
+                {
+                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
+                    customerList[numCustomers].setCustomerId(custID+1);
+                    custID++;
+                    numCustomers++;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
-            return false;
+            else { return false; }
+            
         }
 
         public string viewAllCustomers()
@@ -62,7 +76,10 @@ namespace project
             string s = "-------- Bookings --------\n";
             for (int i = 0; i < numCustomers; i++)
             {
-                s += customerList[i].ToString() + "\n";
+                if (customerList[i] != null)
+                {
+                    s += customerList[i].ToString() + "\n";
+                }
             }
             return s;
         }
@@ -83,7 +100,7 @@ namespace project
             if (index != -1 && numBookings==0)
             {                
                 customerList[index].setNumBookings(numBookings-1);
-                for (int i = index; i<customerList.Length; i++)
+                for (int i = index; i<customerList.Length-1; i++)
                 {
                     customerList[i]=customerList[i+1]; 
                 }

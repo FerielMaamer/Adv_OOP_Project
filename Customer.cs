@@ -8,7 +8,7 @@ namespace project
 {
     internal class Customer
     {
-        private int id = 0;
+        private int id;
         private string fname;
         private string lname;
         private string phoneNum;
@@ -16,7 +16,7 @@ namespace project
 
         public Customer(string fname, string lname, string phoneNum, int numBookings)
         {
-            this.id = ++id;
+            this.id+=1;
             this.fname = fname;
             this.lname = lname;
             this.phoneNum = phoneNum;
@@ -26,6 +26,10 @@ namespace project
         public int getCustomerID()
         {
             return id;
+        }
+        public void setCustomerId(int id)
+        {
+            this.id = id;
         }
 
         public string getFname()
@@ -74,7 +78,7 @@ namespace project
 
         public override string ToString()
         {
-            return $"Customer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
+            return $"Custome Id: {id}\nCustomer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
         }
     }
 }

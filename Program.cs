@@ -74,13 +74,23 @@ namespace project
 
         static void Main(string[] args)
         {
-            coord.addFlight(30, "Toronto", "London");
-            coord.addFlight(40, "London", "Toronto");
-            coord.viewAllFlights();
-            coord.addCustomer(303030, "Feriel", "maamer", "647555555");
-            coord.addCustomer(303030, "John", "Doe", "6474444444");
-            coord.viewAllCustomers();
-            coord.addBooking();
+            FlightManager fm = new FlightManager(100);
+            CustomerManager cm = new CustomerManager(100);
+            coord = new Coordinator(fm, cm, 100);
+            coord.addFlight(101010, 30, "Toronto", "London");
+            coord.addFlight(202020,40, "London", "Toronto");
+            Console.WriteLine(coord.viewAllFlights());
+            coord.addCustomer( "Feriel", "maamer", "647555555",1);
+            coord.addCustomer( "John", "Doe", "6474444444",0);
+            Console.WriteLine(coord.viewAllCustomers());
+            Console.WriteLine("input customerID");
+            int custID = Int32.Parse(Console.ReadLine());
+            coord.deleteCustomer(custID);
+            Console.WriteLine(coord.viewFlight(101010));
+
+            Console.WriteLine(coord.viewAllFlights());
+            Console.WriteLine(coord.viewAllCustomers());
+
 
 
 

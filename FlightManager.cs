@@ -24,7 +24,8 @@ namespace project
         {
             for (int i = 0; i < flightList.Length; i++)
             {
-                if (flightList[i].getFlightNumber() == flightNumber)
+                if (flightList[i] == null) { return -1; }
+                else if (flightList[i].getFlightNumber() == flightNumber)
                 {
                     return i;
                 }
@@ -56,7 +57,11 @@ namespace project
             string s = "-------- Flights --------\n";
             for (int i = 0; i < numFlights; i++)
             {
-                s += flightList[i].ToString() + "\n";
+                if (flightList[i] != null)
+                {
+                    s += flightList[i].ToString() + "\n";
+                }
+                
             }
             return s;
         }
@@ -76,7 +81,7 @@ namespace project
             int index = search(flightNumber);
             if (index != -1 && flightList[index].getNumCustomers()==0)
             {
-                for (int i = index; i < flightList.Length; i++)
+                for (int i = index; i < flightList.Length-1; i++)
                 {
                     flightList[i] = flightList[i + 1];
                 }

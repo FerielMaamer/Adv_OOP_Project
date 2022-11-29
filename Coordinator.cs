@@ -10,7 +10,7 @@ namespace project
     {
         private FlightManager fm;
         private CustomerManager cm;
-        private BookingManager bm;
+        //private BookingManager bm;
         private Booking[] bookingList;
         private int maxBookings;
         private int numBookings;
