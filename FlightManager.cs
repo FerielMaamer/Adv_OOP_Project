@@ -76,7 +76,10 @@ namespace project
             int index = search(flightNumber);
             if (index != -1 && flightList[index].getNumCustomers()==0)
             {
-                flightList = flightList.Where((e, i) => i != index).ToArray();
+                for (int i = index; i < flightList.Length; i++)
+                {
+                    flightList[i] = flightList[i + 1];
+                }
                 return "Successfully deleted!";
             }
             return "The flight could not be deleted as it does not exist or has customers on it.";

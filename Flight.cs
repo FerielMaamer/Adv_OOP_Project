@@ -61,7 +61,7 @@ namespace project
             return destination;
         }
 
-        public void setDestination(string Destination)
+        public void setDestination(string destination)
         {
             this.destination = destination;
         }
@@ -94,23 +94,29 @@ namespace project
                 foreach (Customer customer in customers)
                 {
                     if (customer.getCustomerID() == newCustomer.getCustomerID())
-                    { return false; }
-                    else
-                    {
-                        customers[numCustomers] = newCustomer;
-                        numCustomers++;
-                        return true;
-                    }
+                    { return false; }                    
                 }
+                customers[numCustomers] = newCustomer;
+                numCustomers++;
+                return true;
             }
             else { return false; }
+        }
+
+        public bool flightHasSpace()
+        {
+            if (numCustomers >= capacity)
+            {
+                return false;
+            }
+            return true;
         }
 
         public override string ToString()
         {
             string s = $"Flight number: {flightNumber}\n";
-            s+= $"Flight Origin: {origin}"
-            s+= $"Flight destination: {destination}"
+            s += $"Flight Origin: {origin}";
+            s += $"Flight destination: {destination}";
             return s;
         }
     }

@@ -79,14 +79,14 @@ namespace project
         }
 
 
-        public bool addBooking(int bookingNumber, int customerID, int flightID)
+        public bool addBooking(int customerID, int flightID)
         {
             if (numBookings < maxBookings)
             {
                 int flightIndex = fm.search(flightID);
                 int customerIndex = cm.search(customerID);
-                int index = search(bookingNumber);
-                if (index == -1 && flightIndex!=-1 && customerIndex!=-1)
+                //int index = search(bookingNumber);
+                if (flightIndex!=-1 && customerIndex!=-1 && fm.findFlight(flightIndex).flightHasSpace())
                 {
                     bookingList[numBookings] = new Booking(cm.findCustomer(customerIndex), fm.findFlight(flightIndex));
                     numBookings++;
@@ -119,4 +119,4 @@ namespace project
 
 
 }
-}
+

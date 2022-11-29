@@ -43,7 +43,6 @@ namespace project
                 {
                     customerList[numCustomers] = new Customer(fname, lname, phoneNumber);
                     numCustomers++;
-                    customerList[numCustomers]
                     return true;
                 }
             }

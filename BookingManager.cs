@@ -8,7 +8,7 @@ namespace project
 {
     internal class BookingManager
     {
-        private Booking[] bookingList;
+        /*private Booking[] bookingList;
         private int maxBookings;
         private int numBookings;
 
@@ -39,7 +39,7 @@ namespace project
                 int index = search(bookingNumber);
                 if (index == -1)
                 {
-                    int flightIndex = FlightMan
+                    int flightIndex = 
                     bookingList[numBookings] = new Booking(customer, flight);
                     numBookings++;
                     return true;
@@ -66,6 +66,6 @@ namespace project
                 s += bookingList[i].ToString() + "\n";
             }
             return s;
-        }
+        }*/
     }
 }

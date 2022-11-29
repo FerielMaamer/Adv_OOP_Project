@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fpanda\\Desktop\\GBC Program\\Fall2022\\adv oop\\projectOOP\\projectOOP.csproj",
+      "projectUniqueName": "C:\\Users\\Fpanda\\Source\\Repos\\Adv_OOP_Project\\projectOOP.csproj",
       "projectName": "projectOOP",
-      "projectPath": "C:\\Users\\Fpanda\\Desktop\\GBC Program\\Fall2022\\adv oop\\projectOOP\\projectOOP.csproj",
+      "projectPath": "C:\\Users\\Fpanda\\Source\\Repos\\Adv_OOP_Project\\projectOOP.csproj",
       "packagesPath": "C:\\Users\\Fpanda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fpanda\\Desktop\\GBC Program\\Fall2022\\adv oop\\projectOOP\\obj\\",
+      "outputPath": "C:\\Users\\Fpanda\\Source\\Repos\\Adv_OOP_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Fpanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
