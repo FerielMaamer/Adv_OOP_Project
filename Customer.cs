@@ -12,15 +12,15 @@ namespace project
         private string fname;
         private string lname;
         private string phoneNum;
-        private int bookings;
+        private int numBookings;
 
-        public Customer(string fname, string lname, string phoneNum)
+        public Customer(string fname, string lname, string phoneNum, int numBookings)
         {
             this.id = ++id;
             this.fname = fname;
             this.lname = lname;
             this.phoneNum = phoneNum;
-            this.bookings=0;
+            this.numBookings =numBookings;
         }
 
         public int getCustomerID()
@@ -63,18 +63,18 @@ namespace project
             this.phoneNum = phoneNum;
         }
 
-        public int getBookings()
+        public int getNumBookings()
         {
-            return bookings;
+            return numBookings;
         }
-        public int setBookings(int bookings)
+        public void setNumBookings(int numBookings)
         {
-            this.bookings = bookings;
+            this.numBookings = numBookings;
         }
 
         public override string ToString()
         {
-            return $"Customer ID: {id}\nCustomer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
+            return $"Customer Name: {fname} {lname}\nCustomer Phone Number: {phoneNum}";
         }
     }
 }

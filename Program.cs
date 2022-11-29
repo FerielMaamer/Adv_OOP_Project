@@ -74,7 +74,16 @@ namespace project
 
         static void Main(string[] args)
         {
-           
+            coord.addFlight(30, "Toronto", "London");
+            coord.addFlight(40, "London", "Toronto");
+            coord.viewAllFlights();
+            coord.addCustomer(303030, "Feriel", "maamer", "647555555");
+            coord.addCustomer(303030, "John", "Doe", "6474444444");
+            coord.viewAllCustomers();
+            coord.addBooking();
+
+
+
         }
     }
 }

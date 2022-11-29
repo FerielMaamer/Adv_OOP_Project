@@ -35,16 +35,24 @@ namespace project
             return customerList[index];
         }
 
-        public bool addCustomer(int customerID, string fname, string lname, string phoneNumber)
+        public bool addCustomer(string fname, string lname, string phoneNumber, int numBookings)
         {
             if (numCustomers < maxCustomers)
             {
-                if (search(customerID) == -1)
+                foreach (Customer customer in customerList)
                 {
-                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber);
-                    numCustomers++;
-                    return true;
-                }
+                    if (customer.getFname()==fname && customer.getLname()==lname && customer.getPhoneNum() == phoneNumber)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
+                        numCustomers++;
+                        return true;
+                    }
+                }               
+                
             }
             return false;
         }
@@ -59,22 +67,22 @@ namespace project
             return s;
         }
 
-        public string viewCustomer(int customerID)
+        /*public string viewCustomer(int customerID)
         {
             if (search(customerID) == -1)
             {
                 return $"There is no customer with the ID: {customerID}";
             }
             return customerList[customerID].ToString() + "\n";
-        }        
+        }      */  
 
         public string deleteCustomer(int customerNumber)
         {
             int index = search(customerNumber);
-            int numBookings = customerList[index].getBookings();
+            int numBookings = customerList[index].getNumBookings();
             if (index != -1 && numBookings==0)
             {                
-                customerList[index].setBookings(numBookings-1);
+                customerList[index].setNumBookings(numBookings-1);
                 for (int i = index; i<customerList.Length; i++)
                 {
                     customerList[i]=customerList[i+1]; 
