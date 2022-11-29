@@ -10,7 +10,7 @@ namespace project
     {
         private FlightManager fm;
         private CustomerManager cm;
-        //private BookingManager bm;
+        private BookingManager bm;
         private Booking[] bookingList;
         private int maxBookings;
         private int numBookings;
@@ -27,9 +27,9 @@ namespace project
 
         //Flight class functions
 
-        public bool addFlight(int flightNumber, int capacity, string origin, string destination)
+        public bool addFlight(int flightNumber)
         {
-            return fm.addFlight(flightNumber, capacity, origin, destination);
+            return fm.addFlight(flightNumber);
         }
 
         public string viewAllFlights()
@@ -48,9 +48,9 @@ namespace project
 
         // Customer class functions
 
-        public bool addCustomer(string fname, string lname, string phone, int numBookings)
+        public bool addCustomer(int customerID, string fname, string lname, string phone)
         {
-            return cm.addCustomer(fname, lname, phone, numBookings);
+            return cm.addCustomer(customerID, fname, lname, phone);
         }
         public string viewAllCustomers()
         {
@@ -79,14 +79,14 @@ namespace project
         }
 
 
-        public bool addBooking(int customerID, int flightID)
+        public bool addBooking(int bookingNumber, int customerID, int flightID)
         {
             if (numBookings < maxBookings)
             {
                 int flightIndex = fm.search(flightID);
                 int customerIndex = cm.search(customerID);
-                //int index = search(bookingNumber);
-                if (flightIndex!=-1 && customerIndex!=-1 && fm.findFlight(flightIndex).flightHasSpace())
+                int index = search(bookingNumber);
+                if (index == -1 && flightIndex!=-1 && customerIndex!=-1)
                 {
                     bookingList[numBookings] = new Booking(cm.findCustomer(customerIndex), fm.findFlight(flightIndex));
                     numBookings++;
@@ -119,4 +119,4 @@ namespace project
 
 
 }
-
+}

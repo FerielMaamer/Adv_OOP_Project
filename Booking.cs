@@ -1,35 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace projectOOP
+namespace project
 {
     internal class Booking
     {
-        string bookingDate;
-        string bookingNum;
-        Flight flight;
-        Customer customer;
+        private int bookingNumber = 0;
+        private Customer customer;
+        private Flight flight;
+        private string date;
 
-        public Booking(Flight flight, Customer customer)
-        {                        
-            this.flight = flight;
-            this.customer = customer;
-            //generating booking date
-            this.bookingDate = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
-            //randomly generated booking number
-            Random generator = new Random();
-            this.bookingNum = generator.Next(0, 1000000).ToString("D6");
-        }
-        public string getBookingDate() { return bookingDate; }
-        public string getBookingNum() { return bookingNum; }
-
-        public string viewBooking()
+        public Booking(Customer customer, Flight flight)
         {
-            string s = "Booking Date: " + bookingDate + "\nBooking Number: " + bookingNum +
-                "\nCustomer Name: " + customer.getName() + "\nFlight number: " + flight.getFilghtNumber;
-            return s;
+            this.bookingNumber = ++bookingNumber;
+            this.customer = customer;
+            this.flight = flight;
+            this.date = DateTime.Now.ToString(@"MM\/dd\/yyyy  h\:mm tt");
         }
 
+        public int getBookingNumber()
+        {
+            return bookingNumber;
+        }
+
+        /*public void setBookingNumber(int bookingNumber)
+        {
+            this.bookingNumber = bookingNumber;
+        }*/
+
+        public Customer getCustomer()
+        {
+            return customer;
+        }
+
+        /*public void setCustomer(Customer customer)
+        {
+            this.customer = customer;
+        }*/
+
+        public Flight getFlight()
+        {
+            return flight;
+        }
+        /*
+        public void setFlight(Flight flight)
+        {
+            this.flight = flight;
+        }*/
+
+        public override string ToString()
+        {
+            return $"Booking Number: {bookingNumber}\nFlight Number: {flight}\nCustomer ID: {customer}";
+        }
     }
 }

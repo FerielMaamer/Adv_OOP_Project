@@ -1,0 +1,14 @@
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.csproj.AssemblyReference.cache
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.AssemblyInfoInputs.cache
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.AssemblyInfo.cs
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.csproj.CoreCompileInputs.cache
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.exe
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.deps.json
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.runtimeconfig.json
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.runtimeconfig.dev.json
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.dll
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\bin\Debug\netcoreapp3.1\projectOOP.pdb
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.dll
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.pdb
+C:\Users\Fpanda\Source\Repos\Adv_OOP_Project\obj\Debug\netcoreapp3.1\projectOOP.genruntimeconfig.cache

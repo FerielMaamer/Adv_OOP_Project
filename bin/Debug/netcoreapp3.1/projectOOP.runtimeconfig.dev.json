@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Fpanda\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Fpanda\\.nuget\\packages"
+    ]
+  }
+}
