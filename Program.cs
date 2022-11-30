@@ -56,8 +56,8 @@ namespace project
             Console.WriteLine("3: Back to main menu");
         }
 
-        /* public static int getValidInput()
-         {
+        public static int getValidInput()
+        {
              int choice;
              showMainMenu();
              while (!int.TryParse(Console.ReadLine(), out choice))
@@ -70,13 +70,14 @@ namespace project
              {
 
              }
-         }*/
+        }
 
         static void Main(string[] args)
         {
             FlightManager fm = new FlightManager(100);
             CustomerManager cm = new CustomerManager(100);
-            coord = new Coordinator(fm, cm, 100);
+            BookingManager bm = new BookingManager(100);
+            coord = new Coordinator(fm, cm, bm);
             coord.addFlight(101010, 30, "Toronto", "London");
             coord.addFlight(202020,40, "London", "Toronto");
             Console.WriteLine(coord.viewAllFlights());

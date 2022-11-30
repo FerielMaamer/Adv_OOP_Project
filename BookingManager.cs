@@ -8,15 +8,17 @@ namespace project
 {
     internal class BookingManager
     {
-        /*private Booking[] bookingList;
+        private Booking[] bookingList;
         private int maxBookings;
         private int numBookings;
+        private int bookingSeed;
 
         public BookingManager(int maxBookings)
         {
             this.maxBookings = maxBookings;
             numBookings = 0;
             bookingList = new Booking[maxBookings];
+            bookingSeed = 2000;
         }
 
         public int search(int bookingNumber)
@@ -32,16 +34,16 @@ namespace project
         }
 
 
-        public bool addBooking(int bookingNumber, int customerID, int flightID)
+        public bool addBooking(Flight flight, Customer customer)
         {
             if (numBookings < maxBookings)
             {
-                int index = search(bookingNumber);
+                int index = search(bookingSeed);
                 if (index == -1)
                 {
-                    int flightIndex = 
-                    bookingList[numBookings] = new Booking(customer, flight);
+                    bookingList[numBookings] = new Booking(flight, customer);
                     numBookings++;
+                    bookingSeed++;
                     return true;
                 }
             }
@@ -66,6 +68,6 @@ namespace project
                 s += bookingList[i].ToString() + "\n";
             }
             return s;
-        }*/
+        }
     }
 }

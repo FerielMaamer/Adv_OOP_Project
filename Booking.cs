@@ -13,7 +13,7 @@ namespace project
         private Flight flight;
         private string date;
 
-        public Booking(Customer customer, Flight flight)
+        public Booking(Flight flight, Customer customer)
         {
             this.bookingNumber = ++bookingNumber;
             this.customer = customer;

@@ -10,19 +10,16 @@ namespace project
     {
         private FlightManager fm;
         private CustomerManager cm;
-        //private BookingManager bm;
-        private Booking[] bookingList;
+        private BookingManager bm;
         private int maxBookings;
         private int numBookings;
 
-        public Coordinator(FlightManager flightManager, CustomerManager customerManager, int maxBookings)
+        public Coordinator(FlightManager flightManager, CustomerManager customerManager, BookingManager bookingManager)
         {
             this.fm = flightManager;
             this.cm = customerManager;
-            //this.bm = bookingManager;
-            this.maxBookings = maxBookings;
+            this.bm = bookingManager;
             numBookings = 0;
-            bookingList = new Booking[maxBookings];
         }
 
         //Flight class functions
@@ -63,10 +60,10 @@ namespace project
 
         // Booking class functions
 
-        public int search(int bookingNumber)
+        /*public int search(int bookingNumber)
         {
-            /*cm.viewAllCustomers();
-            fm.viewAllFlights();*/
+            cm.viewAllCustomers();
+            fm.viewAllFlights();
 
             for (int i = 0; i < bookingList.Length; i++)
             {
@@ -76,7 +73,7 @@ namespace project
                 }
             }
             return -1;
-        }
+        }*/
 
 
         public bool addBooking(int customerID, int flightID)
@@ -88,14 +85,14 @@ namespace project
                 //int index = search(bookingNumber);
                 if (flightIndex!=-1 && customerIndex!=-1 && fm.findFlight(flightIndex).flightHasSpace())
                 {
-                    bookingList[numBookings] = new Booking(cm.findCustomer(customerIndex), fm.findFlight(flightIndex));
+                    bm.addBooking(fm.findFlight(flightIndex), cm.findCustomer(customerIndex));
                     numBookings++;
                     return true;
                 }
             }
             return false;
         }
-
+        /*
         public string viewBooking(int bookingNumber)
         {
             int index = search(bookingNumber);
@@ -114,7 +111,7 @@ namespace project
                 s += bookingList[i].ToString() + "\n";
             }
             return s;
-        }
+        }*/
     }
 
 

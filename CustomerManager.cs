@@ -11,13 +11,13 @@ namespace project
         private Customer[] customerList;
         private int maxCustomers;
         private int numCustomers;
-        int custID;
+        private int customerSeed;
 
         public CustomerManager(int maxCustomers)
         {
             this.maxCustomers = maxCustomers;
             numCustomers = 0;
-            custID = 0;
+            customerSeed = 1;
             customerList = new Customer[maxCustomers];
 
         }
@@ -56,8 +56,8 @@ namespace project
                 if (exists == false)
                 {
                     customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
-                    customerList[numCustomers].setCustomerId(custID+1);
-                    custID++;
+                    customerList[numCustomers].setCustomerId(customerSeed);
+                    customerSeed++;
                     numCustomers++;
                     return true;
                 }
