@@ -14,13 +14,12 @@ namespace project
         private string phoneNum;
         private int numBookings;
 
-        public Customer(string fname, string lname, string phoneNum, int numBookings)
+        public Customer(string fname, string lname, string phoneNum)
         {
-            this.id+=1;
             this.fname = fname;
             this.lname = lname;
             this.phoneNum = phoneNum;
-            this.numBookings =numBookings;
+            numBookings = 0;
         }
 
         public int getCustomerID()
@@ -73,7 +72,7 @@ namespace project
         }
         public void setNumBookings(int numBookings)
         {
-            this.numBookings = numBookings;
+            this.numBookings += numBookings;
         }
 
         public override string ToString()

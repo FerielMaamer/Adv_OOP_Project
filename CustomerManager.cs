@@ -12,6 +12,7 @@ namespace project
         private int maxCustomers;
         private int numCustomers;
         private int customerSeed;
+        private int numBookings;
 
         public CustomerManager(int maxCustomers)
         {
@@ -38,7 +39,7 @@ namespace project
             return customerList[index];
         }
 
-        public bool addCustomer(string fname, string lname, string phoneNumber, int numBookings)
+        public bool addCustomer(string fname, string lname, string phoneNumber)
         {
             bool exists = false;
             if (numCustomers < maxCustomers)
@@ -55,7 +56,7 @@ namespace project
                 }
                 if (exists == false)
                 {
-                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
+                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber);
                     customerList[numCustomers].setCustomerId(customerSeed);
                     customerSeed++;
                     numCustomers++;
@@ -73,7 +74,7 @@ namespace project
 
         public string viewAllCustomers()
         {
-            string s = "-------- Bookings --------\n";
+            string s = "-------- Customers --------\n";
             for (int i = 0; i < numCustomers; i++)
             {
                 if (customerList[i] != null)

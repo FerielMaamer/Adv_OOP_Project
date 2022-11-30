@@ -42,9 +42,9 @@ namespace project
 
         // Customer class functions
 
-        public bool addCustomer(string fname, string lname, string phone, int numBookings)
+        public bool addCustomer(string fname, string lname, string phone)
         {
-            return cm.addCustomer(fname, lname, phone, numBookings);
+            return cm.addCustomer(fname, lname, phone);
         }
         public string viewAllCustomers()
         {

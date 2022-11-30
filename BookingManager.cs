@@ -42,6 +42,7 @@ namespace project
                 if (index == -1)
                 {
                     bookingList[numBookings] = new Booking(flight, customer);
+                    customer.setNumBookings(1);
                     numBookings++;
                     bookingSeed++;
                     return true;
