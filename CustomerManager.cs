@@ -11,13 +11,14 @@ namespace project
         private Customer[] customerList;
         private int maxCustomers;
         private int numCustomers;
-        int custID;
+        private int customerSeed;
+        private int numBookings;
 
         public CustomerManager(int maxCustomers)
         {
             this.maxCustomers = maxCustomers;
             numCustomers = 0;
-            custID = 0;
+            customerSeed = 1;
             customerList = new Customer[maxCustomers];
 
         }
@@ -38,7 +39,7 @@ namespace project
             return customerList[index];
         }
 
-        public bool addCustomer(string fname, string lname, string phoneNumber, int numBookings)
+        public bool addCustomer(string fname, string lname, string phoneNumber)
         {
             bool exists = false;
             if (numCustomers < maxCustomers)
@@ -55,9 +56,9 @@ namespace project
                 }
                 if (exists == false)
                 {
-                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber, numBookings);
-                    customerList[numCustomers].setCustomerId(custID+1);
-                    custID++;
+                    customerList[numCustomers] = new Customer(fname, lname, phoneNumber);
+                    customerList[numCustomers].setCustomerId(customerSeed);
+                    customerSeed++;
                     numCustomers++;
                     return true;
                 }
@@ -73,7 +74,7 @@ namespace project
 
         public string viewAllCustomers()
         {
-            string s = "-------- Bookings --------\n";
+            string s = "-------- Customers --------\n";
             for (int i = 0; i < numCustomers; i++)
             {
                 if (customerList[i] != null)

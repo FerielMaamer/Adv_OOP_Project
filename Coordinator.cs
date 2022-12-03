@@ -10,19 +10,13 @@ namespace project
     {
         private FlightManager fm;
         private CustomerManager cm;
-        //private BookingManager bm;
-        private Booking[] bookingList;
-        private int maxBookings;
-        private int numBookings;
+        private BookingManager bm;
 
-        public Coordinator(FlightManager flightManager, CustomerManager customerManager, int maxBookings)
+        public Coordinator(FlightManager flightManager, CustomerManager customerManager, BookingManager bookingManager)
         {
             this.fm = flightManager;
             this.cm = customerManager;
-            //this.bm = bookingManager;
-            this.maxBookings = maxBookings;
-            numBookings = 0;
-            bookingList = new Booking[maxBookings];
+            this.bm = bookingManager;
         }
 
         //Flight class functions
@@ -48,9 +42,9 @@ namespace project
 
         // Customer class functions
 
-        public bool addCustomer(string fname, string lname, string phone, int numBookings)
+        public bool addCustomer(string fname, string lname, string phone)
         {
-            return cm.addCustomer(fname, lname, phone, numBookings);
+            return cm.addCustomer(fname, lname, phone);
         }
         public string viewAllCustomers()
         {
@@ -63,57 +57,18 @@ namespace project
 
         // Booking class functions
 
-        public int search(int bookingNumber)
-        {
-            /*cm.viewAllCustomers();
-            fm.viewAllFlights();*/
-
-            for (int i = 0; i < bookingList.Length; i++)
-            {
-                if (bookingList[i].getBookingNumber() == bookingNumber)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
 
         public bool addBooking(int customerID, int flightID)
         {
-            if (numBookings < maxBookings)
+            int flightIndex = fm.search(flightID);
+            int customerIndex = cm.search(customerID);
+            Flight flight = fm.findFlight(flightIndex);
+            Customer customer = cm.findCustomer(customerIndex);
+            if (flightIndex!=-1 && customerIndex!=-1 && fm.findFlight(flightIndex).flightHasSpace())
             {
-                int flightIndex = fm.search(flightID);
-                int customerIndex = cm.search(customerID);
-                //int index = search(bookingNumber);
-                if (flightIndex!=-1 && customerIndex!=-1 && fm.findFlight(flightIndex).flightHasSpace())
-                {
-                    bookingList[numBookings] = new Booking(cm.findCustomer(customerIndex), fm.findFlight(flightIndex));
-                    numBookings++;
-                    return true;
-                }
+                return bm.addBooking(flight, customer);
             }
             return false;
-        }
-
-        public string viewBooking(int bookingNumber)
-        {
-            int index = search(bookingNumber);
-            if (index == -1)
-            {
-                return $"There is no booking with the booking number: {bookingNumber}";
-            }
-            return bookingList[index].ToString();
-        }
-
-        public string viewAllBookings()
-        {
-            string s = "-------- Bookings --------\n";
-            for (int i = 0; i < numBookings; i++)
-            {
-                s += bookingList[i].ToString() + "\n";
-            }
-            return s;
         }
     }
 

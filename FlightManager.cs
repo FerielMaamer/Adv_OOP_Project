@@ -11,6 +11,7 @@ namespace project
         private Flight[] flightList;
         private int maxFlights;
         private int numFlights;
+        //private int flightSeed;
         
 
         public FlightManager(int maxFlights)
@@ -18,6 +19,7 @@ namespace project
             this.maxFlights = maxFlights;
             numFlights = 0;
             flightList = new Flight[maxFlights];
+            //flightSeed = 300;
         }
 
         public int search(int flightNumber)
@@ -46,6 +48,7 @@ namespace project
                 {
                     flightList[numFlights] = new Flight(flightNumber, capacity, origin, destination);
                     numFlights++;
+                    //flightSeed++;
                     return true;
                 }
             }
